@@ -1,6 +1,6 @@
 # FizzBuzz
 
-FizzBuzz is a kids game to help learn about division, but is often used on coding interviews
+FizzBuzz is a kids game to help learn about division but is often used on coding interviews
 
 ## How it works
 
