@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 
 // The 'niche' version
 int divisibleByThree(int number) {
@@ -25,7 +26,7 @@ void fizzBuzz(int start, int end) {
         counter = 0;
         counter += divisibleByThree(i);
         counter += divisibleByFive(i);
-        counter > 0 ? printf("\n") : printf("%d\n", i);
+        counter > 0 ? printf(" ") : printf("%d ", i);
     }
 }
 
@@ -42,33 +43,16 @@ void fizzBuzz1(int start, int end) {
             printf("Buzz");
             counter++;
         }
-        counter > 0 ? printf("\n") : printf("%d\n", i);
+        counter > 0 ? printf(" ") : printf("%d ", i);
     }
 }
 
 int main(void) {
     int start, end;
-    printf("Where would you like the FizzBuzz to start and end ?\n");
-    printf("(type '1 10' if you want it to start on 1 and finish on 10): ");
+    printf("1st input is start, 2nd input is the end\n");
     scanf("%d%d", &start, &end);
-    while(end <= start || start < 1) {
-        printf("Invalid numbers! Remember start smaller than end AND start greater than 0\n");
-        scanf("%d%d", &start, &end);
-    }
-    printf("Would you like the 'niche' or the normal version ?\n");
-    printf("(type niche or normal): ");
-    char version[7];
-    scanf("%s", version);
-    while(strcmp(version, "niche") != 0 && strcmp(version, "normal") != 0) {
-        printf("That's not an available option!\n");
-        printf("(type niche or normal): ");
-        scanf("%s", version);
-    }
-    if(strcmp(version, "niche") == 0) {
-        fizzBuzz(start, end);
-    }
-    else {
-        fizzBuzz1(start, end);
-    }
+    assert(start < end && start > 0);
+    // fizzBuzz(start, end);
+    fizzBuzz1(start, end);
     return 0;
 }
